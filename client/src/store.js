@@ -45,7 +45,7 @@ export default new Vuex.Store({
   actions: {
     signUp ({ commit }, payload) {
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/users/signup', payload)
+        axios.post('http://35.197.148.253/users/signup', payload)
           .then((response) => {
             localStorage.setItem('token', response.headers.token)
             localStorage.setItem('id', response.data.id)
@@ -59,7 +59,7 @@ export default new Vuex.Store({
     },
     signIn ({ commit }, payload) {
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/users/signin', payload)
+        axios.post('http://35.197.148.253/users/signin', payload)
           .then((response) => {
             localStorage.setItem('token', response.headers.token)
             localStorage.setItem('id', response.data.id)
@@ -74,7 +74,7 @@ export default new Vuex.Store({
 
     oAuth ({commit}, email) {
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/users/oauth', {email})
+        axios.post('http://35.197.148.253/users/oauth', {email})
           .then((response) => {
             localStorage.setItem('token', response.headers.token)
             localStorage.setItem('id', response.data.id)
@@ -89,7 +89,7 @@ export default new Vuex.Store({
 
     getAllQuestions ({commit}) {
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:3000/questions', 
+        axios.get('http://35.197.148.253/questions', 
           {
             headers: {
               token: localStorage.getItem('token')
@@ -107,7 +107,7 @@ export default new Vuex.Store({
 
     createQuestion ({commit}, question) {
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/questions', question,
+        axios.post('http://35.197.148.253/questions', question,
           {
             headers: {
               token: localStorage.getItem('token')
@@ -125,7 +125,7 @@ export default new Vuex.Store({
 
     deleteQuestion ({commit}, question) {
       return new Promise((resolve, reject) => {
-        axios.delete(`http://localhost:3000/questions/${question._id}`,
+        axios.delete(`http://35.197.148.253/questions/${question._id}`,
           {
             headers: {
               token: localStorage.getItem('token')
@@ -143,7 +143,7 @@ export default new Vuex.Store({
 
     createAnswer ({commit, dispatch}, payload) {
       return new Promise((resolve, reject) => {
-        axios.post(`http://localhost:3000/answers/${payload.id}`, payload.answer,
+        axios.post(`http://35.197.148.253/answers/${payload.id}`, payload.answer,
           {
             headers: {
               token: localStorage.getItem('token')
@@ -165,7 +165,7 @@ export default new Vuex.Store({
 
     voteAnswer ({commit, dispatch}, payload) {
       return new Promise((resolve, reject) => {
-        axios.put(`http://localhost:3000/answers/${payload.id}`, payload.vote,
+        axios.put(`http://35.197.148.253/answers/${payload.id}`, payload.vote,
           {
             headers: {
               token: localStorage.getItem('token')
@@ -187,7 +187,7 @@ export default new Vuex.Store({
 
     voteQuestion ({commit, dispatch}, payload) {
       return new Promise((resolve, reject) => {
-        axios.put(`http://localhost:3000/questions/${payload.id}`, payload.vote,
+        axios.put(`http://35.197.148.253/questions/${payload.id}`, payload.vote,
           {
             headers: {
               token: localStorage.getItem('token')
