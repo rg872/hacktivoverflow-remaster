@@ -10,7 +10,7 @@ const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const { startCronJob } = require('./runner')
 
-mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_USER_PASS}@ds129770.mlab.com:29770/hacktiv-overflow`)
+mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds129770.mlab.com:29770/hacktiv-overflow`)
 
 const app = express()
 
